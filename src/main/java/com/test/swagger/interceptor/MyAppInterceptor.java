@@ -15,10 +15,10 @@ public class MyAppInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws AuthenticationException {
         String authorization = request.getHeader("Authorization");
-        if(Objects.nonNull(authorization)) {
-            if(authorization.equals("test"))
-            return true;
-        }
+
+            if(authorization.equals("test")) {
+                return true;
+            }
 
         throw new RuntimeException("Authorization Token Error");
     }
